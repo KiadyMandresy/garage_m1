@@ -20,6 +20,7 @@ function authenticateToken(req, res, next) {
 }
 
 function generateAccessToken(username) {
+    console.log(username +"'s Token: " + process.env.TOKEN_SECRET);
     return jwt.sign({ data: username }, process.env.TOKEN_SECRET, { expiresIn: '1h' });
 }
 
