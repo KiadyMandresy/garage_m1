@@ -1,20 +1,33 @@
-const mongoose = require("../database");
 
 // create an schema
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-var userSchema = new mongoose.Schema({
-
-    id: String,
+const UserSchema = new Schema({
     nom: String,
     prenom: String,
-    login: string,
-    email: String,
-    mdp: String,
+    login: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    mdp: {
+        type: String,
+        required: true,
+    },
     categorie: String,
 });
 
+UserSchema.set('toJSON', {
+    transform: (document, returnedObject) => {
+        returnedObject.id = returnedObject._id.toString()
+        delete returnedObject._id
+        //delete returnedObject.__v
+        //do not reveal passwordHash
+        delete returnedObject.mdp
+    }
+})
 
-const userModel = mongoose.model('User', userSchema);
+const User = mongoose.model("user", UserSchema);
 
-
-module.exports = userModel;
+module.exports = User;
