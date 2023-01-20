@@ -29,6 +29,10 @@ async function getById(id) {
     return user.toJSON()
 }
 
+async function getCars(idUsers) {
+    return null;
+}
+
 module.exports = {
     login,
     register,

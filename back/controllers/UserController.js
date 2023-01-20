@@ -30,4 +30,9 @@ router.get('/:id', (req, res, next) => {
     ).catch(err => next(err))
 })
 
+router.get('/cars', (req, res, next) = {
+    const { idUser } = req.body
+    UserServices.getCars() /*TODOOOO
+})
+
 module.exports = router;
