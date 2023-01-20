@@ -1,5 +1,3 @@
-
-// create an schema
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
@@ -11,6 +9,7 @@ const UserSchema = new Schema({
         required: true,
         unique: true,
     },
+    email: String,
     mdp: {
         type: String,
         required: true,
