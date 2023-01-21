@@ -30,9 +30,10 @@ router.get('/:id', (req, res, next) => {
     ).catch(err => next(err))
 })
 
-router.get('/cars', (req, res, next) = {
-    const { idUser } = req.body
-    UserServices.getCars() /*TODOOOO
+router.post('/cars/:id', (req, res, next) => {
+    userServices.getCars(req.params.id).then(
+        (cars) => res.json(cars)
+    ).catch(err => next(err))
 })
 
 module.exports = router;

@@ -30,11 +30,13 @@ async function getById(id) {
 }
 
 async function getCars(idUsers) {
-    return null;
+    const user = this.getById(idUsers);
+    return user;
 }
 
 module.exports = {
     login,
     register,
-    getById
+    getById,
+    getCars
 };

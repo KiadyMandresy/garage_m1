@@ -3,3 +3,4 @@ front/node_modules
 front/package-lock.json
 back/package-lock.json
 front/.angular/cache
+node_modules/
