@@ -3,5 +3,5 @@ front/node_modules
 front/package-lock.json
 back/package-lock.json
 front/.angular/cache
-front_v2/.angular/cache
-front_v2/node_modules
+front_v2/
+front/.angular/cache/15.1.1/
