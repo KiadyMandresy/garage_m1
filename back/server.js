@@ -10,6 +10,7 @@ const database = require('./database.js')
 const auth = require('./helpers/jwt.js')
 const unless = require('express-unless')
 const users = require('./controllers/UserController.js')
+const cars = require('./routes/routesVoit.js')
 const errors = require('./helpers/ErrorHandler.js')
 
 // middleware for authenticating token submitted with requests
@@ -21,8 +22,10 @@ app.use(auth.authenticateToken.unless({
     ]
 }))
 
-app.use(express.json()) // middleware for parsing application/json
-app.use('/users', users) // middleware for listening to routes
+app.use(express.json());
+//app.use(express.urlencoded({ extended: true }))// middleware for parsing application/json
+app.use('/users', users); // middleware for listening to routes
+app.use('/voit',cars);
 app.use(errors.errorHandler); // middleware for error responses
 
 

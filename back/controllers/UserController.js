@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router();
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcrypt')
 const userServices = require('../services/UserServices.js')
 
 router.post('/register', (req, res, next) => {
-    const { password } = req.body
+    console.log(req.body);
+    const { mdp } = req.body
     const salt = bcrypt.genSaltSync(10);
-    req.body.password = bcrypt.hashSync(password, salt);
-
+    req.body.mdp = bcrypt.hashSync(mdp, salt);
     userServices.register(req.body).then(
         () => res.send('success')
     ).catch(
@@ -16,8 +16,10 @@ router.post('/register', (req, res, next) => {
 })
 
 router.post('/login', (req, res, next) => {
-    const { username, password } = req.body;
-    userServices.login({ username, password })
+    //console.log(req.body);
+    const { email, mdp } = req.body;
+    //console.log( { email, mdp });
+    userServices.login({email, mdp })
         .then(user => {
             res.json(user)
         }
