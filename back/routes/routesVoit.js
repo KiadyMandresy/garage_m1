@@ -1,56 +1,18 @@
-const Model = require('../models/VoitureModel');
-const router = require('./users');
+const Voiture = require('../models/VoitureModel');
+var express = require('express');
+const controller = require('../controllers/VoitControllers')
+var router = express.Router();
 
-router.post('/CreateVoit', (req, res) => {
-    const data = new Model({
-        personne: req.body.personne,
-        nom: req.body.nom,
-        marque: req.body.marque,
-        numero: req.body.numero,
-        statut: req.body.statut,
-        reparation: req.body.reparation,
-    })
+router.post('/CreateVoit', controller.create);
 
-    try{
-        const dataToSave = data.save();
-        res.status(200).json(dataToSave)
-    }
-    catch(error){
-        res.status(400).json({message: error.message})
-    }
-});
-router.get('/getAllVoiture', async (req, res) => {
-    try{
-        const data = await Model.find();
-        res.json(data)
-    }
-    catch(error){
-        res.status(500).json({message: error.message})
-    }
-});
-router.get('/getVoitById/:id', async (req, res) => {
-    try{
-        const data = await Model.findById(req.params.id);
-        res.json(data)
-    }
-    catch(error){
-        res.status(500).json({message: error.message})
-    }
-});
-router.patch('/UpdateVoit/:id', async (req, res) => {
-    try {
-        const id = req.params.id;
-        const updatedData = req.body;
-        // retournéna ve anaty body ve ilay data updaté
-        const options = { new: true };
+router.get('/getAllVoiture', controller.getAll);
 
-        const result = await Model.findByIdAndUpdate(
-            id, updatedData, options
-        )
+router.get('/getVoitById/:id',controller.getById);
 
-        res.send(result)
-    }
-    catch (error) {
-        res.status(400).json({ message: error.message })
-    }
-})
+router.patch('/UpdateVoit/:id',controller.update);
+
+router.patch('/updatePersonne/:id',controller.updatePersonne);
+
+router.patch('/addReparation/:id',controller.pushReparation);
+
+module.exports = router;
