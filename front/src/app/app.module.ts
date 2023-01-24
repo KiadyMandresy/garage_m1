@@ -39,4 +39,4 @@ import { GuestComponent } from './theme/layout/guest/guest.component';
   providers: [NavigationItem],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
