@@ -12,7 +12,24 @@ const unless = require('express-unless')
 const users = require('./controllers/UserController.js')
 const cars = require('./routes/routesVoit.js')
 const errors = require('./helpers/ErrorHandler.js')
+const cors = require('cors');
 
+// solv CORS Policy problem mety
+app.use(function(req, res, next) {
+    // Website you wish to allow to connect
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    next();
+  });
 // middleware for authenticating token submitted with requests
 auth.authenticateToken.unless = unless
 app.use(auth.authenticateToken.unless({
@@ -22,6 +39,11 @@ app.use(auth.authenticateToken.unless({
     ]
 }))
 
+// solv CORS Policy problem tsy mety
+app.use(cors({
+    origin: ['http://localhost:3000','http://localhost:4200',null],
+    optionsSuccessStatus: 200
+}))
 app.use(express.json());
 //app.use(express.urlencoded({ extended: true }))// middleware for parsing application/json
 app.use('/users', users); // middleware for listening to routes

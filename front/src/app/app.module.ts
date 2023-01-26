@@ -18,6 +18,15 @@ import { NavItemComponent } from './theme/layout/admin/navigation/nav-content/na
 import { SharedModule } from './theme/shared/shared.module';
 import { ConfigurationComponent } from './theme/layout/admin/configuration/configuration.component';
 import { GuestComponent } from './theme/layout/guest/guest.component';
+import { HttpClientModule } from '@angular/common/http';
+// import { AccueilComponent } from './demo/accueil/accueil/accueil.component';
+// import { CardModule } from 'primeng/card';
+// import { ButtonModule } from 'primeng/button';
+import { DragDropModule } from 'primeng/dragdrop';
+import { ProgressSpinnerModule } 
+    from 'primeng/progressspinner';
+
+
 
 @NgModule({
   declarations: [
@@ -33,9 +42,20 @@ import { GuestComponent } from './theme/layout/guest/guest.component';
     NavItemComponent,
     NavCollapseComponent,
     ConfigurationComponent,
-    GuestComponent
+    GuestComponent,
+    // AccueilComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule, 
+    AppRoutingModule, 
+    SharedModule, 
+    BrowserAnimationsModule,
+    DragDropModule,
+    HttpClientModule,
+    ProgressSpinnerModule
+    // CardModule,
+    // ButtonModule
+  ],
   providers: [NavigationItem],
   bootstrap: [AppComponent]
 })

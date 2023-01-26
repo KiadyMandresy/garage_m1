@@ -111,9 +111,18 @@ exports.getAll = async (req, res) => {
         res.status(500).json({message: error.message})
     }
 };
+exports.getByIdClient = async (req, res) => {
+    try{
+        const data = await Voiture.find({'voiture.personne.id': req.params.id});
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+};
 exports.getById = async (req, res) => {
     try{
-        const data = await Voiture.find({id:req.params.id});
+        const data = await Voiture.find({id:req.params.idClient});
         res.json(data)
     }
     catch(error){

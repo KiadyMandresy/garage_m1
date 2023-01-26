@@ -9,6 +9,8 @@ router.get('/getAllVoiture', controller.getAll);
 
 router.get('/getVoitById/:id',controller.getById);
 
+router.get('/getVoitureByIdClient',controller.getByIdClient);
+
 router.patch('/UpdateVoit/:id',controller.update);
 
 router.patch('/updatePersonne/:id',controller.updatePersonne);
