@@ -5,3 +5,4 @@ back/package-lock.json
 front/.angular/cache
 front_v2/
 front/.angular/cache/15.1.1/
+back/.env
