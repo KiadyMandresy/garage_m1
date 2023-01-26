@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators'
+import { Car } from '../domain/car';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +19,22 @@ export class AuthService {
         private router: Router) { }
 
     baseUrl = environment.apiUrl + "users";
-
+    
+    public register(personne: Car['personne']): any{
+        let params = new HttpParams()
+            .set('nom',personne.nom)
+            .set('prenom',personne.prenom)
+            .set('email',personne.email)
+            .set('mdp',personne.mdp);
+        return this.http.post<any>(
+            this.baseUrl+'/register',
+            [],
+           {params}
+        );
+    }
     public login(username: string, password: string): any {
         const data = {'email': username, 'mdp': password};
-      const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+        const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
         return this.http.post<any>(
             this.baseUrl+'/login',
             data,

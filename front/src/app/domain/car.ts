@@ -7,6 +7,7 @@ export interface Personne{
     mdp;
     categorie?;
     _id?;
+    
 }
 export interface Facture{
     date?;
