@@ -17,10 +17,10 @@
           <h5 class="my-4 d-flex justify-content-center"> Sign in with Email address </h5>
           <div class="form-floating mb-3">
             <input [(ngModel)]="email" name="email" type="email" class="form-control" id="floatingInput" />
-            <label for="floatingInput">Email address / Username</label>
+            <label for="floatingInput">Email address </label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="password" value="12345" />
+            <input [(ngModel)]="password" type="password" class="form-control" id="password"/>
             <label for="password">Password</label>
           </div>
           <div class="d-grid mt-4">
