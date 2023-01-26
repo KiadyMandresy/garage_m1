@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
+var AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const UserSchema = new Schema({
+    id: Number,
     nom: String,
     prenom: String,
     login: {
@@ -17,6 +19,7 @@ const UserSchema = new Schema({
     categorie: String,
 });
 
+UserSchema.plugin(AutoIncrement,{id:user_seq,inc_field:id});
 // UserSchema.set('toJSON', {
 //     transform: (document, returnedObject) => {
 //         returnedObject.id = returnedObject._id.toString()
