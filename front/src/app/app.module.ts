@@ -27,6 +27,7 @@ import { ProgressSpinnerModule }
     from 'primeng/progressspinner';
 
 
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -52,11 +53,12 @@ import { ProgressSpinnerModule }
     BrowserAnimationsModule,
     DragDropModule,
     HttpClientModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    FormsModule
     // CardModule,
     // ButtonModule
   ],
   providers: [NavigationItem],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

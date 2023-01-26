@@ -14,7 +14,6 @@ const cars = require('./routes/routesVoit.js')
 const errors = require('./helpers/ErrorHandler.js')
 const cors = require('cors');
 
-// solv CORS Policy problem mety
 app.use(function(req, res, next) {
     // Website you wish to allow to connect
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -30,6 +29,11 @@ app.use(function(req, res, next) {
 
     next();
   });
+
+app.use(cors({
+origin: ['http://localhost:3000','http://localhost:4200',null],
+optionsSuccessStatus: 200
+}))
 // middleware for authenticating token submitted with requests
 auth.authenticateToken.unless = unless
 app.use(auth.authenticateToken.unless({
@@ -39,11 +43,6 @@ app.use(auth.authenticateToken.unless({
     ]
 }))
 
-// solv CORS Policy problem tsy mety
-app.use(cors({
-    origin: ['http://localhost:3000','http://localhost:4200',null],
-    optionsSuccessStatus: 200
-}))
 app.use(express.json());
 //app.use(express.urlencoded({ extended: true }))// middleware for parsing application/json
 app.use('/users', users); // middleware for listening to routes
