@@ -21,20 +21,29 @@ export class AuthService {
     baseUrl = environment.apiUrl + "users";
     
     public register(personne: Car['personne']): any{
-        let params = new HttpParams()
-            .set('nom',personne.nom)
-            .set('prenom',personne.prenom)
-            .set('email',personne.email)
-            .set('mdp',personne.mdp);
+        const param = {
+            'nom': personne.nom,
+            'login': personne.prenom,
+            'email': personne.email,
+            'mdp': personne.mdp
+        }
+        // let params = new HttpParams()
+        //     .set('nom',personne.nom)
+        //     .set('prenom',personne.prenom)
+        //     .set('email',personne.email)
+        //     .set('mdp',personne.mdp);
+            console.log(personne.email);
+            console.log(this.baseUrl+'/register');
+            const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
         return this.http.post<any>(
             this.baseUrl+'/register',
-            [],
-           {params}
+            param,
+            config
         );
     }
     public login(username: string, password: string): any {
         const data = {'email': username, 'mdp': password};
-        const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+        const config = { headers: new HttpHeaders().set('Content-Type', 'application/json')};
         return this.http.post<any>(
             this.baseUrl+'/login',
             data,

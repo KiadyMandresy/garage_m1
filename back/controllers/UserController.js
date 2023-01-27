@@ -9,7 +9,7 @@ router.post('/register', (req, res, next) => {
     const salt = bcrypt.genSaltSync(10);
     req.body.mdp = bcrypt.hashSync(mdp, salt);
     userServices.register(req.body).then(
-        () => res.send('success')
+        () => res.sendStatus(200)
     ).catch(
         err => next(err)
     )
