@@ -8,10 +8,13 @@ const UserSchema = new Schema({
     prenom: String,
     login: {
         type: String,
-        required: true,
-        unique: true,
+        required: false,
+        //unique: true,
     },
-    email: String,
+    email:{
+        type: String,
+        required: true
+    }, 
     mdp: {
         type: String,
         required: true,

@@ -33,6 +33,10 @@ const routes: Routes = [
       {
         path: 'accueil',
         loadComponent: () => import('./demo/accueil/accueil.component')
+      },
+      {
+        path: 'new-car',
+        loadComponent: () => import('./demo/new-car/new-car.component')
       }
     ]
   },

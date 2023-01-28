@@ -10,14 +10,24 @@ export class Person implements Personne {
     categorie?: string;
     _id?: string;
 
-    constructor(email: string, nom: string, prenom: string, mdp: string) {
-        // this.id = id;
+    constructor(
+        email: string, 
+        nom: string, 
+        prenom: string, 
+        mdp: string,
+        id:number,
+        login:string,
+        categorie:string) {
+        if(!id==undefined)
+        this.id = id;
         this.email = email;
         this.nom = nom;
         this.prenom = prenom;
-        // this.login = login;
+        if(!login==undefined)
+        this.login = login;
         this.mdp = mdp;
-        // this.categorie = categorie;
+        if(!categorie==undefined)
+        this.categorie = categorie;
         // this._id = _id;
     }
 }

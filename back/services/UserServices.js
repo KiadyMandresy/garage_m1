@@ -25,7 +25,7 @@ async function register(params) {
 
 async function getById(id) {
 
-    const user = await User.findById(id);
+    const user = await User.findOne({'id':id});
     // call toJSON method applied during model instantiation
     return user.toJSON()
 }

@@ -56,8 +56,10 @@ export class AuthService {
         this.login(username,password).subscribe(
             result =>{
                 console.log(result);
+                sessionStorage.setItem('id',result.id);
                 sessionStorage.setItem('role',result.categorie);
                 sessionStorage.setItem('currentUser',result.login);
+                localStorage.setItem('token',result.token);
                 return result;
             },
             error => {

@@ -25,7 +25,7 @@ export default class RegisterComponent {
     private authService : AuthService
   ){}
   public register(){
-    let personne = new Person(this.email,this.nom,this.prenom,this.password);
+    let personne = new Person(this.email,this.nom,this.prenom,this.password,undefined,undefined,undefined);
     this.authService.register(personne).subscribe(res=> {return res},err=>{console.log(err)});
     console.log("button Clicked");
   }

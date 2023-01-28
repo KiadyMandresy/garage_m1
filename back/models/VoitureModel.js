@@ -1,16 +1,17 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const User = require("./UserModels").schema;
+var AutoIncrement = require('mongoose-sequence')(mongoose);
 
-const Personne = new Schema({
-    id: String,
-    email: String,
-    nom: String,
-    prenom: String,
-    login: String,
-    mdp: String, 
-    categorie: String
-});
+// const Personne = new Schema({
+//     id: Number,
+//     email: String,
+//     nom: String,
+//     prenom: String,
+//     login: String,
+//     mdp: String, 
+//     categorie: String
+// });
 // const Piece = new Schema({0: String,1: String});
 
 const Liste = new Schema({
@@ -33,14 +34,15 @@ const Reparation = new Schema({
     facture: [{type: Facture}]
 });
 const VoitSchema = new mongoose.Schema({
+    idVoit: Number,
     id: String,
-    personne: Personne,
+    personne: User,
     nom: String,
     marque: String,
     numero: String,
     statut: Number,
     reparation: [{type: Reparation}],
 });
-
+VoitSchema.plugin(AutoIncrement,{inc_field:'idVoit'});
 
 module.exports = mongoose.model("voiture", VoitSchema);

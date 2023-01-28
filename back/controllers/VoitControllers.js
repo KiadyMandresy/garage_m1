@@ -1,3 +1,4 @@
+const User = require('../models/UserModels');
 const Voiture = require('../models/VoitureModel');
 
 
@@ -85,8 +86,24 @@ exports.pushReparation = (req, res) => {
 
 exports.create = (req, res) => {
     console.log("ligne 5 Create Voiture");
+    let personne = new User();
+    console.log(req.body);
+    if(req.body['personne.nom'])
+    personne.nom = req.body['personne.nom'];
+    if(req.body['personne.email'])
+    personne.email = req.body['personne.email'];
+    if(req.body['personne.mdp'])
+    personne.mdp = req.body['personne.mdp'];
+    if(req.body['personne.id'])
+    personne.id = req.body.personne.id;
+    if(req.body['personne.prenom'])
+    personne.prenom = req.body.personne.prenom;
+    if(req.body['personne.login'])
+    personne.login = req.body.personne.login;
+    if(req.body['personne.categorie'])
+    personne.categorie = req.body.personne.categorie;
     const data = new Voiture({
-        personne: req.body.personne,
+        personne: personne,
         nom: req.body.nom,
         marque: req.body.marque,
         numero: req.body.numero,

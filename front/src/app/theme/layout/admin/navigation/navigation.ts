@@ -83,18 +83,18 @@ const NavigationItems = [
     children: [
       {
         id: 'addCar',
-        title: 'Nouvelle Voiture',
+        title: 'Add car',
         type: 'item',
         classes: 'nav-item',
-        url: '/addCar',
+        url: '/new-car',
         icon: 'ti ti-typography'
       },
       {
         id: 'myCar',
-        title: 'Mes Voitures',
+        title: 'My Cars',
         type: 'item',
         classes: 'nav-item',
-        url: '/myCars',
+        url: '/accueil',
         icon: 'ti ti-brush'
       }
     ]
