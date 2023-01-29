@@ -90,11 +90,19 @@ const NavigationItems = [
         icon: 'ti ti-typography'
       },
       {
+        id: 'garageDrop',
+        title: 'Garage dropping',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/accueil',
+        icon: 'ti ti-brush'
+      },
+      {
         id: 'myCar',
         title: 'My Cars',
         type: 'item',
         classes: 'nav-item',
-        url: '/accueil',
+        url: '/my-car',
         icon: 'ti ti-brush'
       }
     ]
