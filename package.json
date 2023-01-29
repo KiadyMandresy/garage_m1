@@ -5,12 +5,12 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "cd front/ && node server.js",
     "build": "ng build",
     "build-prod": "ng build --configuration production --base-href /angular/free/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "heroku-postbuild": "ng build"
+    "heroku-postbuild": "cd front/ && ng build"
   },
   "dependencies": {
     "@angular/animations": "^15.0.0",
