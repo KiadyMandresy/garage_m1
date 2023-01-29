@@ -13,7 +13,11 @@ import { DragDropModule } from 'primeng/dragdrop';
 import { PanelModule } from 'primeng/panel';
 import { TabViewModule } from 'primeng/tabview';
 
-
+enum MyEnum {
+  available,
+  garage,
+  repaired
+}
 @Component({
   selector: 'app-accueil',
   standalone: true,
@@ -28,6 +32,8 @@ export default class AccueilComponent {
   draggedProduct: Car;
   list : any;
   results: any;
+  enum: typeof MyEnum = MyEnum;
+  status : number = MyEnum.available;
   constructor(
     private primengConfig: PrimeNGConfig,
     private apiVoiture: ApiService) {
@@ -37,7 +43,7 @@ export default class AccueilComponent {
     this.primengConfig.ripple = true;
     this.selectedProducts = [];
     var id = sessionStorage.getItem('_id');
-    this.apiVoiture.getData(id).subscribe(
+    this.apiVoiture.getDataAvailable(id).subscribe(
       (response) => {
         console.log(response);
         this.availableProducts = response;
@@ -62,6 +68,7 @@ export default class AccueilComponent {
   drop() {
       if (this.draggedProduct) {
           let draggedProductIndex = this.findIndex(this.draggedProduct);
+          this.apiVoiture.InsertIntoGarage(this.draggedProduct._id).subscribe(res => {return res},(err)=>console.error(err));
           this.selectedProducts = [...this.selectedProducts, this.draggedProduct];
           this.availableProducts = this.availableProducts.filter((val, i) => i != draggedProductIndex);
           this.draggedProduct = null;

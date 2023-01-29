@@ -27,6 +27,24 @@ export class ApiService {
     //   return data
     // });
   }
+  public getDataAvailable(id:any){
+    const config = { headers: new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', 'Bearer ' + localStorage.getItem('token'))};
+    return this.http
+    .get<any>(this.baseUrl+"/getAvailable/"+id,config);
+  }
+
+  public InsertIntoGarage(id: any){
+    const param = {
+      "status": 1,
+    }
+    const config = { headers: new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', 'Bearer ' + localStorage.getItem('token'))};
+      
+      return this.http.patch(this.baseUrl+"/updateStatus/"+id,JSON.stringify(param),config);
+  }
 
   public addCar(car: Car): any{
     // car.personne = new Person()

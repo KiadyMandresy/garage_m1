@@ -145,9 +145,45 @@ exports.getByObjectId = async (req, res) => {
         res.status(200).json(cars)
     });
 };
+exports.getAvalaible = async (req, res) => {
+    Voiture.find({ "personne": req.params.id ,"status":0}).populate('personne').exec(function (err, cars) {
+        if (err) res.status(500).json({message: err.message});
+        res.status(200).json(cars)
+    });
+};
+exports.updateStatus= async (req, res) =>{
+    var statut = req.body.status;
+    try{
+        Voiture.findOneAndUpdate({'_id':req.params.id},
+        {
+            $set:
+                {"statut": statut}},
+            {new:true},
+            (err,doc)=>{
+                if(err){
+                    console.log("Something wrong when updating status!");
+                }
+                res.status(200).json({message: doc});
+                console.log(doc);
+            });
+    }
+    catch(error)
+    {
+        res.status(400).json({ message: error.message })
+    }
+}
 exports.getById = async (req, res) => {
     try{
         const data = await Voiture.find({id:req.params.idClient});
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+};
+exports.getVoit = async (req, res) => {
+    try{
+        const data = await Voiture.findById({'_id':req.params.id});
         res.json(data)
     }
     catch(error){
