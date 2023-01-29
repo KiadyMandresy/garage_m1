@@ -9,12 +9,16 @@ import { ApiService } from '../../services/voitureService';
 import { Car } from '../../domain/car';
 import { Person } from 'src/app/domain/personne';
 import { TableModule } from 'primeng/table'; 
+import { DragDropModule } from 'primeng/dragdrop';
+import { PanelModule } from 'primeng/panel';
+import { TabViewModule } from 'primeng/tabview';
 
 
 @Component({
   selector: 'app-accueil',
   standalone: true,
-  imports: [CommonModule, SharedModule,CardModule,ButtonModule,ProgressSpinnerModule,TableModule],
+  imports: [CommonModule, SharedModule,CardModule,ButtonModule,ProgressSpinnerModule,TableModule,
+     DragDropModule, PanelModule, TabViewModule],
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.scss']
 })
@@ -33,8 +37,17 @@ export default class AccueilComponent {
     this.primengConfig.ripple = true;
     this.selectedProducts = [];
     var id = sessionStorage.getItem('_id');
-    this.apiVoiture.getData(id).then((data) => (this.availableProducts = data));
-    
+    this.apiVoiture.getData(id).subscribe(
+      (response) => {
+        console.log(response);
+        this.availableProducts = response;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+    // .then((data) => (this.availableProducts = data));
+    console.log("available products: "+this.availableProducts);
   }
   // LoadCars(event: LazyLoadEvent){
   //   this.apiVoiture.getData().subscribe(response =>

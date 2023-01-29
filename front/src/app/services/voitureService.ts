@@ -19,13 +19,13 @@ export class ApiService {
       .set('Content-Type', 'application/json')
       .set('Authorization', 'Bearer ' + localStorage.getItem('token'))};
     return this.http
-    .get<any>(this.baseUrl+"/getByObjectId/"+id,config)
-    .toPromise()
-    .then((res) => <Car[]>res.data)
-    .then((data) => {
-      console.log(this.baseUrl+"/getByObjectId/"+id)
-      return data
-    });
+    .get<any>(this.baseUrl+"/getByObjectId/"+id,config);
+    // .toPromise()
+    // .then((res) => <Car[]>res.data)
+    // .then((data) => {
+    //   console.log(data)
+    //   return data
+    // });
   }
 
   public addCar(car: Car): any{

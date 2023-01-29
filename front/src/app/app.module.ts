@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { ButtonModule } from 'primeng/button';
 import { DragDropModule } from 'primeng/dragdrop';
 import { TableModule } from 'primeng/table'; 
-
+import {PanelModule} from 'primeng/panel';
 import { ProgressSpinnerModule } 
     from 'primeng/progressspinner';
 
@@ -57,7 +57,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     ProgressSpinnerModule,
     FormsModule,
-    TableModule
+    TableModule,
+    PanelModule
     // CardModule,
     // ButtonModule
   ],
