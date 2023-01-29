@@ -35,16 +35,8 @@ const routes: Routes = [
         loadComponent: () => import('./demo/accueil/accueil.component')
       },
       {
-        path: 'my-car',
-        loadComponent: () => import('./demo/my-car/my-car.component')
-      },
-      {
         path: 'new-car',
         loadComponent: () => import('./demo/new-car/new-car.component')
-      },
-      {
-        path: 'fiche-car',
-        loadComponent: () => import('./demo/fiche-car/fiche-car.component')
       }
     ]
   },

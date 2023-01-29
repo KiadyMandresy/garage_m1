@@ -30,7 +30,6 @@ import { ProgressSpinnerModule }
 
 
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -59,8 +58,7 @@ import { RouterModule } from '@angular/router';
     ProgressSpinnerModule,
     FormsModule,
     TableModule,
-    PanelModule,
-    RouterModule
+    PanelModule
     // CardModule,
     // ButtonModule
   ],

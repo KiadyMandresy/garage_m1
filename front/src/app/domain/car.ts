@@ -29,7 +29,6 @@ export interface Reparation{
     facture: Facture[];
 }
 export interface Car{
-    _id?;
     id?;
     personne: string;
     nom?;
