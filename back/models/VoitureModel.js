@@ -30,19 +30,35 @@ const Reparation = new Schema({
     liste:[{type: Liste}],
     entree: String,
     sortie: String,
-    mecanicien: User,
+    mecanicien: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
     facture: [{type: Facture}]
 });
 const VoitSchema = new mongoose.Schema({
-    idVoit: Number,
+    idVoit: {type: Number, unique: true},
     id: String,
-    personne: User,
+    personne: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
     nom: String,
     marque: String,
     numero: String,
-    statut: Number,
+    statut:{
+        type: Number,
+        default: 0
+    },
     reparation: [{type: Reparation}],
 });
-VoitSchema.plugin(AutoIncrement,{inc_field:'idVoit'});
+VoitSchema.plugin(AutoIncrement,{inc_field: 'idVoit'});
+
+// VoitSchema.virtual('user', {
+//     ref: 'User',
+//     localField: 'personne.id',
+//     foreignField: 'id',
+//     justOne: true
+// });
 
 module.exports = mongoose.model("voiture", VoitSchema);

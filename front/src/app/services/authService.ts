@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators'
 import { Car } from '../domain/car';
+import { Person } from '../domain/personne';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class AuthService {
 
     baseUrl = environment.apiUrl + "users";
     
-    public register(personne: Car['personne']): any{
+    public register(personne:Person): any{
         const param = {
             'nom': personne.nom,
             'login': personne.prenom,
@@ -56,9 +57,9 @@ export class AuthService {
         this.login(username,password).subscribe(
             result =>{
                 console.log(result);
-                sessionStorage.setItem('id',result.id);
-                sessionStorage.setItem('role',result.categorie);
-                sessionStorage.setItem('currentUser',result.login);
+                sessionStorage.setItem('_id',result._id);
+                // sessionStorage.setItem('role',result.categorie);
+                // sessionStorage.setItem('currentUser',result.login);
                 localStorage.setItem('token',result.token);
                 return result;
             },

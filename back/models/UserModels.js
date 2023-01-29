@@ -3,12 +3,12 @@ const { Schema } = mongoose;
 var AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const UserSchema = new Schema({
-    id: Number,
+    id: {type: Number, unique: true},
     nom: String,
     prenom: String,
     login: {
         type: String,
-        required: false,
+        //required: false,
         //unique: true,
     },
     email:{
@@ -19,7 +19,10 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
-    categorie: String,
+    categorie: {
+        type: String,
+        default: 'Client'
+    }
 });
 
 UserSchema.plugin(AutoIncrement,{inc_field: 'id'});

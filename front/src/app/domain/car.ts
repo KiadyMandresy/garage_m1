@@ -25,12 +25,12 @@ export interface Liste{
 }
 export interface Reparation{
     liste: Liste[];
-    mecanicien: Personne,
+    mecanicien: string,
     facture: Facture[];
 }
 export interface Car{
     id?;
-    personne: Personne;
+    personne: string;
     nom?;
     marque?;
     numero?;
@@ -40,18 +40,18 @@ export interface Car{
 export class Cars implements Car{
     idVoit?;
     id?;
-    personne: Personne;
+    personne: string;
     nom?;
     marque?;
     numero?;
     statut?;
     reparation: Reparation[];
 
-    constructor (personne: any, nom: string, marque: string,numero:string)
+    constructor (personne?: any, nom?: string, marque?: string,numero?:string)
     {
         // this.personne._id= personne._id;
-        this.personne = new Person(personne.email,personne.nom,personne.prenom,
-            personne.mdp,personne.id,personne.login,personne.categorie);
+        // this.personne = new Person(personne.email,personne.nom,personne.prenom,
+        //     personne.mdp,personne.id,personne.login,personne.categorie);
         // this.personne.id= personne.id;
         // this.personne.email = personne.email;
         // this.personne.login = personne.login;

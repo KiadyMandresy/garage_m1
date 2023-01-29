@@ -32,4 +32,10 @@ router.get('/:id', (req, res, next) => {
     ).catch(err => next(err))
 })
 
+router.get('/getVoit/:id', (req, res, next) => {
+    userServices.getByObjectId(req.params.id).then(
+        (user) => res.json(user)
+    ).catch(err => next(err))
+})
+
 module.exports = router;

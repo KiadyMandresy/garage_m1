@@ -17,12 +17,12 @@ export class UserService {
 
     baseUrl = environment.apiUrl + "users";
 
-    public getById(id: any): Observable<Person> {
+    public getByObjectId(id: any): Observable<Person> {
         const config = { headers: new HttpHeaders()
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + localStorage.getItem('token'))};
         return this.http.get<any>(
-            this.baseUrl+'/'+id,
+            this.baseUrl+'/getVoit/'+id,
             config
         );
         

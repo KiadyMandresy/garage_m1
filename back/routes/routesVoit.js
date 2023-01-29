@@ -9,7 +9,9 @@ router.get('/getAllVoiture', controller.getAll);
 
 router.get('/getVoitById/:id',controller.getById);
 
-router.get('/getVoitureByIdClient',controller.getByIdClient);
+router.get('/getVoitureByIdClient/:id',controller.getByIdClient);
+
+router.get('/getByObjectId/:id',controller.getByObjectId);
 
 router.patch('/UpdateVoit/:id',controller.update);
 

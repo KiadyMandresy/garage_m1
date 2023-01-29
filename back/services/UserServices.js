@@ -29,9 +29,16 @@ async function getById(id) {
     // call toJSON method applied during model instantiation
     return user.toJSON()
 }
+async function getByObjectId(id) {
+
+    const user = await User.findById({'_id':id});
+    // call toJSON method applied during model instantiation
+    return user.toJSON()
+}
 
 module.exports = {
     login,
     register,
-    getById
+    getById,
+    getByObjectId
 };

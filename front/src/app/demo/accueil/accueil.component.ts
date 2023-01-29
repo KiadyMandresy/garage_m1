@@ -7,11 +7,14 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ButtonModule } from 'primeng/button';
 import { ApiService } from '../../services/voitureService';
 import { Car } from '../../domain/car';
+import { Person } from 'src/app/domain/personne';
+import { TableModule } from 'primeng/table'; 
+
 
 @Component({
   selector: 'app-accueil',
   standalone: true,
-  imports: [CommonModule, SharedModule,CardModule,ButtonModule,ProgressSpinnerModule],
+  imports: [CommonModule, SharedModule,CardModule,ButtonModule,ProgressSpinnerModule,TableModule],
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.scss']
 })
@@ -21,7 +24,6 @@ export default class AccueilComponent {
   draggedProduct: Car;
   list : any;
   results: any;
-  client: Car["personne"];
   constructor(
     private primengConfig: PrimeNGConfig,
     private apiVoiture: ApiService) {
@@ -30,7 +32,9 @@ export default class AccueilComponent {
   ngOnInit() {
     this.primengConfig.ripple = true;
     this.selectedProducts = [];
-    this.apiVoiture.getData(this.client.id).then((data) => (this.availableProducts = data));
+    var id = sessionStorage.getItem('_id');
+    this.apiVoiture.getData(id).then((data) => (this.availableProducts = data));
+    
   }
   // LoadCars(event: LazyLoadEvent){
   //   this.apiVoiture.getData().subscribe(response =>
