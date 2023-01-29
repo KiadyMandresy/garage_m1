@@ -31,6 +31,9 @@ import { ProgressSpinnerModule }
 
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { DialogModule } from 'primeng/dialog';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -60,11 +63,13 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     TableModule,
     PanelModule,
-    RouterModule
+    RouterModule,
+    DialogModule,
+    ConfirmDialogModule
     // CardModule,
     // ButtonModule
   ],
-  providers: [NavigationItem],
+  providers: [NavigationItem,ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

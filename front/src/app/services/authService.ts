@@ -54,12 +54,14 @@ export class AuthService {
     }
     // ato no tokny micheck ny catégorie anle user de selon anzay no hiredirigéna anazy
     public checkLogin(username: string,password:string) : any{
+        var role : string;
         this.login(username,password).subscribe(
             result =>{
                 console.log(result);
                 sessionStorage.setItem('_id',result._id);
                 // sessionStorage.setItem('role',result.categorie);
                 // sessionStorage.setItem('currentUser',result.login);
+                role = result.categorie;
                 localStorage.setItem('token',result.token);
                 return result;
             },
@@ -71,7 +73,11 @@ export class AuthService {
             () => {
                 // 'onCompleted' callback.
                 // No errors, route to new page here
+                console.log(role);
+                if(role=="Client")
                 this.router.navigate(['/accueil']);
+                else if(role=="atelier")
+                this.router.navigate(['/atelier']);
             }
         );
     }

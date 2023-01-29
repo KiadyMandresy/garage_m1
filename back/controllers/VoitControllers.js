@@ -151,6 +151,12 @@ exports.getAvalaible = async (req, res) => {
         res.status(200).json(cars)
     });
 };
+exports.getInGarage = async (req, res) => {
+    Voiture.find({"status":1}).populate('personne').exec(function (err, cars) {
+        if (err) res.status(500).json({message: err.message});
+        res.status(200).json(cars)
+    });
+};
 exports.updateStatus= async (req, res) =>{
     var statut = req.body.status;
     try{

@@ -34,7 +34,13 @@ export class ApiService {
     return this.http
     .get<any>(this.baseUrl+"/getAvailable/"+id,config);
   }
-
+  public getVoitInGarage(id:any){
+    const config = { headers: new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', 'Bearer ' + localStorage.getItem('token'))};
+    return this.http
+    .get<any>(this.baseUrl+"/getInGarage/"+id,config);
+  }
   public InsertIntoGarage(id: any){
     const param = {
       "status": 1,

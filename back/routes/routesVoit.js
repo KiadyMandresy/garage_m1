@@ -15,6 +15,8 @@ router.get('/getByObjectId/:id',controller.getByObjectId);
 
 router.get('/getAvalaible/:id',controller.getAvalaible);
 
+router.get('/getInGarage/:id',controller.getInGarage);
+
 router.patch('/updateStatus/:id',controller.updateStatus);
 
 router.patch('/UpdateVoit/:id',controller.update);

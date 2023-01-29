@@ -35,7 +35,6 @@ async function getByObjectId(id) {
     // call toJSON method applied during model instantiation
     return user.toJSON()
 }
-
 module.exports = {
     login,
     register,

@@ -1,0 +1,63 @@
+<!-- <ng-container class="car-list" *ngIf="results else loading"> -->
+    <div class="card">
+        <div class="grid">
+            <div class="col-12 md:col-6 drag-column">
+                <div *ngFor="let product of availableProducts">
+                    <div class="product-item" pDraggable="products" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+                        <div class="image-container">
+                                <img src="assets/images/logo.png" [alt]="product.nom" class="product-image" />
+                        </div>
+                        <div class="product-list-detail">
+                            <h5 class="mb-2">{{product.marque}}</h5>
+                            <i class="pi pi-tag product-category-icon"></i>
+                            <span class="product-category">{{product.numero}}</span>
+                        </div>
+                        <div class="product-list-action" [ngSwitch]="status">
+                            <h6 class="mb-2">{{product.nom}}</h6>
+                            <span *ngSwitchCase="enum.available" class="'product-badge status-available">Available</span>
+                            <span *ngSwitchCase="enum.garage" class="'product-badge status-garage">Garage</span>
+                            <span *ngSwitchCase="enum.repaired" class="'product-badge status-repaired">Repaired</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 md:col-6 drop-column" pDroppable="products" (onDrop)="drop()">
+            <p-table [value]="selectedProducts">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Marque</th>
+                        <th>Numero</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                            <td>{{product.id}}</td>
+                            <td>{{product.nom}}</td>
+                            <td>{{product.marque}}</td>
+                            <td>{{product.numero}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+    </div>
+    <!-- </ng-container> -->
+    </div> 
+    <ng-template #loading>
+        <p-progressSpinner></p-progressSpinner>
+    </ng-template>
+        
+    <!-- <h5>Modal</h5> -->
+    <!-- <p-button (click)="showModalDialog()" icon="pi pi-external-link" label="Show"></p-button> -->
+    <!-- <p-dialog header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+        [draggable]="false" [resizable]="false">
+        <p class="m-0">Réceptionner voiture?</p>
+            <ng-template pTemplate="footer">
+                <p-button icon="pi pi-check" (click)="displayModal=false&&confirm=true" label="Yes" class="p-button-text"></p-button>
+                <p-button icon="pi pi-times" (click)="displayModal=false" label="No"></p-button>
+            </ng-template>
+    </p-dialog> -->
+
+    <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
+<!-- <p-button (click)="confirm1()" icon="pi pi-check" label="Confirm"></p-button> -->
