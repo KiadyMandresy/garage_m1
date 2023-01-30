@@ -1,0 +1,9 @@
+{
+    "id" : "personne1",
+    "nom" : "RAVELOSON",
+    "prenom" : "Andria",
+    "login" : "Hdvo",
+    "email" : "hendriniavo@hotmail.com",
+    "mdp" : "Hdvo",
+    "categorie": "Client"
+}

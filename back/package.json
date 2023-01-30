@@ -3,16 +3,30 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "server": "nodemon server.js"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
     "cookie-parser": "~1.4.4",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
-    "express": "~4.16.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
+    "express-unless": "^1.0.0",
     "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
+    "jade": "^0.31.2",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.3",
-    "morgan": "~1.9.1"
+    "mongoose-sequence": "^5.3.1",
+    "mongoose-sequence-plugin": "^1.0.5",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.20",
+    "save": "^2.9.0"
   }
 }

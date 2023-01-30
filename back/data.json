@@ -1,0 +1,188 @@
+//! CLIENT 
+{
+    "id": "personne1",
+    "nom": "RAVELOSON",
+    "prenom": "Andria",
+    "login": "Hdvo",
+    "email": "hendriniavo@hotmail.com",
+    "mdp": "Hdvo",
+    "categorie": "client"
+}
+
+{
+    "id": "personne2",
+    "email": "kiadyrandria07@gmail.com",
+    "nom": "RANDRIA",
+    "prenom": "Kiady Mandresy",
+    "login": "kiady",
+    "mdp": "kiady",
+    "categorie": "client"
+}
+{
+    "id": "personne3",
+    "email": "JeanBaptiste@yopmail.com",
+    "nom": "Jean",
+    "prenom": "Baptiste",
+    "login": "baptiste",
+    "mdp": "baptiste",
+    "categorie": "client"
+}
+{
+    "id": "personne4",
+    "email": "AinaRanarivelo@yopmail.com",
+    "nom": "Aina",
+    "prenom": "Ranarivelo",
+    "login": "ranarivelo",
+    "mdp": "ranarivelo",
+    "categorie": "client"
+}
+//! MECANO
+{
+    "id": "mecanicien1",
+    "email": "TokyRandretsa@yopmail.com",
+    "nom": "Randretsa",
+    "prenom": "Toky",
+    "login": "toky",
+    "mdp": "toky",
+    "categorie": "mecanicien"
+}
+{
+    "id": "mecanicien2",
+    "email": "HeryManana@yopmail.com",
+    "nom": "Manana",
+    "prenom": "Hery",
+    "login": "hery",
+    "mdp": "hery",
+    "categorie": "mecanicien"
+}
+{
+    "id": "mecanicien3",
+    "email": "PatrickRanaivo@yopmail.com",
+    "nom": "Ranaivo",
+    "prenom": "Patrick",
+    "login": "patrick",
+    "mdp": "patrick",
+    "categorie": "mecanicien"
+}
+//!RESPONSABLE ATALIER
+{
+    "id": "atelier1",
+    "email": "MihajaRabe@yopmail.com",
+    "nom": "Rabe",
+    "prenom": "Mihaja",
+    "login": "mihaja",
+    "mdp": "mihaja",
+    "categorie": "atelier"
+}
+{
+    "id": "atelier2",
+    "email": "HajainaDupont@yopmail.com",
+    "nom": "Dupont",
+    "prenom": "Hajaina",
+    "login": "hajaina",
+    "mdp": "hajaina",
+    "categorie": "atelier"
+}
+//! RESPONSABLE FINANCIER
+{
+    "id": "financier",
+    "email": "RajoRakoto@yopmail.com",
+    "nom": "Rakoto",
+    "prenom": "Rajo",
+    "login": "rajo",
+    "mdp": "rajo",
+    "categorie": "financier"
+}
+//!VOITURE
+{
+    "id": "voiture1",
+    "personne": {
+        "id": "personne1",
+        "nom": "RAVELOSON",
+        "prenom": "Andria",
+        "login": "Hdvo",
+        "email": "hendriniavo@hotmail.com",
+        "mdp": "Hdvo",
+        "categorie": "client"
+    },
+    "nom": "pride",
+    "marque": "Kia",
+    "numero": "4345TBD",
+    "statut": 0,
+    "reparation": [
+        {
+            "liste": [
+                {
+                    "idreparation": "reparation1",
+                    "type": "vidange",
+                    "piece": [
+                        "filtre",
+                        "essuie glace"
+                    ]
+                }
+            ],
+            "entree": "14/08/2021",
+            "sortie": "14/08/2021",
+            "mecanicien": {
+                "id": "mecanicien1",
+                "email": "TokyRandretsa@yopmail.com",
+                "nom": "Randretsa",
+                "prenom": "Toky",
+                "login": "toky",
+                "mdp": "toky",
+                "categorie": "mecanicien"
+            },
+            "facture": [
+                {
+                    "idfacture": "facture1",
+                    "date": "14/08/2021",
+                    "montantTotal": 50000,
+                    "montantPaye": 50000
+                }
+            ]
+        }
+    ]
+}
+
+{
+    "id": "voiture2",
+    "personne": {
+        "id": "personne2",
+        "email": "kiadyrandria07@gmail.com",
+        "nom": "RANDRIA",
+        "prenom": "Kiady Mandresy",
+        "login": "kiady",
+        "mdp": "kiady",
+        "categorie": "client"
+    },
+    "nom": "tiguan",
+    "marque": "VW",
+    "numero": "5457TBP",
+    "statut": 0,
+    "reparation": []
+}
+//!CAISSE
+{
+    "date": "01/01/2023",
+    "chiffre": 200000000
+}
+{
+    "date": "02/01/2023",
+    "chiffre": 201000000
+}
+{
+    "date": "03/01/2023",
+    "chiffre": 202000000
+}
+{
+    "date": "04/01/2023",
+    "chiffre": 200000000
+}
+{
+    "date": "05/01/2023",
+    "chiffre": 199000000
+}
+{
+    "date": "06/01/2023",
+    "chiffre": 204000000
+}
