@@ -10,7 +10,8 @@
     "build-prod": "ng build --configuration production --base-href /angular/free/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "heroku-postbuild": "cd front/ && npm i && ng build"
+    "heroku-postbuild": "cd front/ && npm i && ng build",
+    "performance": "false"
   },
   "dependencies": {
     "@angular/animations": "^15.0.0",
