@@ -11,16 +11,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "heroku-postbuild": "ng build",
-    "performance": {
-      "hints": "warning",
-      "budgets": [
-        {
-          "type": "initial",
-          "maximumWarning": "2mb",
-          "maximumError": "3mb"
-        }
-      ]
-    }
+    "performance": "false"
   },
   "dependencies": {
     "@angular/animations": "^15.0.0",
