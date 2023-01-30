@@ -12,14 +12,16 @@ export class ApiService {
 
   baseUrl = environment.apiUrl + "voit";
 
-  public getData(id: any){
+  public getData(id: any) {
     // let params = new HttpParams()
     //   .set("idClient",args.idClient);
-    const config = { headers: new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('Authorization', 'Bearer ' + localStorage.getItem('token'))};
+    const config = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+        .set('Authorization', 'Bearer ' + localStorage.getItem('token'))
+    };
     return this.http
-    .get<any>(this.baseUrl+"/getByObjectId/"+id,config);
+      .get<any>(this.baseUrl + "/getByObjectId/" + id, config);
     // .toPromise()
     // .then((res) => <Car[]>res.data)
     // .then((data) => {
@@ -27,32 +29,38 @@ export class ApiService {
     //   return data
     // });
   }
-  public getDataAvailable(id:any){
-    const config = { headers: new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('Authorization', 'Bearer ' + localStorage.getItem('token'))};
+  public getDataAvailable(id: any) {
+    const config = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+        .set('Authorization', 'Bearer ' + localStorage.getItem('token'))
+    };
     return this.http
-    .get<any>(this.baseUrl+"/getAvailable/"+id,config);
+      .get<any>(this.baseUrl + "/getAvalaible/" + id, config);
   }
-  public getVoitInGarage(id:any){
-    const config = { headers: new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('Authorization', 'Bearer ' + localStorage.getItem('token'))};
+  public getVoitInGarage(id: any) {
+    const config = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+        .set('Authorization', 'Bearer ' + localStorage.getItem('token'))
+    };
     return this.http
-    .get<any>(this.baseUrl+"/getInGarage/"+id,config);
+      .get<any>(this.baseUrl + "/getInGarage/" + id, config);
   }
-  public InsertIntoGarage(id: any){
+  public InsertIntoGarage(id: any) {
     const param = {
       "status": 1,
     }
-    const config = { headers: new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('Authorization', 'Bearer ' + localStorage.getItem('token'))};
-      
-      return this.http.patch(this.baseUrl+"/updateStatus/"+id,JSON.stringify(param),config);
+    const config = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+        .set('Authorization', 'Bearer ' + localStorage.getItem('token'))
+    };
+
+    return this.http.patch(this.baseUrl + "/updateStatus/" + id, JSON.stringify(param), config);
   }
 
-  public addCar(car: Car): any{
+  public addCar(car: Car): any {
     // car.personne = new Person()
     console.log("addCar_voitureService");
     const param = {
@@ -63,19 +71,21 @@ export class ApiService {
       // 'personne.email': car.personne.email,
       // 'personne.mdp': car.personne.mdp,
       // 'personne.categorie': car.personne.categorie,
-      "personne":car.personne,
+      "personne": car.personne,
       "nom": car.nom,
       "marque": car.marque,
       "numero": car.numero,
     }
     console.log(param);
-    const config = { headers: new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('Authorization', 'Bearer ' + localStorage.getItem('token'))};
-        return this.http.post<any>(
-            this.baseUrl+'/CreateVoit',
-            param,
-            config
-        );
+    const config = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+        .set('Authorization', 'Bearer ' + localStorage.getItem('token'))
+    };
+    return this.http.post<any>(
+      this.baseUrl + '/CreateVoit',
+      param,
+      config
+    );
   }
 }
