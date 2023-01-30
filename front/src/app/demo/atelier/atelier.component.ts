@@ -109,7 +109,7 @@ export  default class AtelierComponent {
                 this.selectedProducts = [...this.selectedProducts, this.draggedProduct];
                 this.availableProducts = this.availableProducts.filter((val, i) => i != draggedProductIndex);
                 this.draggedProduct = null;
-                this._router.navigateByUrl('/');
+                this._router.navigateByUrl('/reparation');
             },
             reject: () => {
                 this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];

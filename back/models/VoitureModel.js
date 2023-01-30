@@ -15,7 +15,7 @@ var AutoIncrement = require('mongoose-sequence')(mongoose);
 // const Piece = new Schema({0: String,1: String});
 
 const Liste = new Schema({
-    idReparation: String,
+    // idReparation: String,
     type: String,
     piece: [{type: String}]
 });
