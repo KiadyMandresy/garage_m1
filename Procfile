@@ -1,1 +1,1 @@
-web: cd front 
+web: cd front/ && node server.js
