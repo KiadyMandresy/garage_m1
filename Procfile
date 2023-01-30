@@ -1,1 +1,0 @@
-web: cd front/ && node server.js
