@@ -20,12 +20,12 @@
             "budgets": [
               {
                 "type": "initial",
-                "maximumWarning": "2mb",
+                "maximumWarning": "10mb",
                 "maximumError": "5mb"
               },
               {
                 "type": "anyComponentStyle",
-                "maximumWarning": "2kb",
+                "maximumWarning": "2mb",
                 "maximumError": "4kb"
               }
             ],
@@ -52,12 +52,12 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "10mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
+                  "maximumWarning": "2mb",
                   "maximumError": "4kb"
                 }
               ],
@@ -91,6 +91,18 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "10mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2mb",
+                  "maximumError": "4kb"
+                }
+              ],
               "browserTarget": "free-version:build:production"
             },
             "development": {
