@@ -7,6 +7,7 @@ async function updateChildListe(query,newListe){
         item["$"]["piece"] = newListe.$.piece;
         doc.save();
 });
+
 async function Update(updatedData,id){
     try {
         const updatedData = req.body;
@@ -44,4 +45,5 @@ async function Update(updatedData,id){
     catch (error) {
         res.status(400).json({ message: error.message })
     }
+}
 }

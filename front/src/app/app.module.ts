@@ -18,8 +18,22 @@ import { NavItemComponent } from './theme/layout/admin/navigation/nav-content/na
 import { SharedModule } from './theme/shared/shared.module';
 import { ConfigurationComponent } from './theme/layout/admin/configuration/configuration.component';
 import { GuestComponent } from './theme/layout/guest/guest.component';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+// import { AccueilComponent } from './demo/accueil/accueil/accueil.component';
+// import { CardModule } from 'primeng/card';
+// import { ButtonModule } from 'primeng/button';
+import { DragDropModule } from 'primeng/dragdrop';
+import { TableModule } from 'primeng/table'; 
+import {PanelModule} from 'primeng/panel';
+import { ProgressSpinnerModule } 
+    from 'primeng/progressspinner';
+
+
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { DialogModule } from 'primeng/dialog';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -35,10 +49,27 @@ import { HttpClientModule } from '@angular/common/http';
     NavItemComponent,
     NavCollapseComponent,
     ConfigurationComponent,
-    GuestComponent
+    GuestComponent,
+    // AccueilComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule,FormsModule, HttpClientModule],
-  providers: [NavigationItem],
+  imports: [
+    BrowserModule, 
+    AppRoutingModule, 
+    SharedModule, 
+    BrowserAnimationsModule,
+    DragDropModule,
+    HttpClientModule,
+    ProgressSpinnerModule,
+    FormsModule,
+    TableModule,
+    PanelModule,
+    RouterModule,
+    DialogModule,
+    ConfirmDialogModule
+    // CardModule,
+    // ButtonModule
+  ],
+  providers: [NavigationItem,ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

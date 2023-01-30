@@ -1,0 +1,27 @@
+<div class="grid">
+    <div class="col-12 md:col-6 drag-column">
+        <div *ngFor="let product of availableProducts">
+            <div class="product-item">
+                <div class="image-container">
+                   <img src="assets/images/logo.png" [alt]="product.nom" class="product-image" />
+                        
+                </div>
+                <div class="product-list-detail">
+                    <h5 class="mb-2">{{product.marque}}</h5>
+                    <i class="pi pi-tag product-category-icon"></i>
+                    <a routerLink="/fiche-car">
+                        <span class="product-category">{{product.numero}}</span>
+                    </a>
+                </div>
+                <div class="product-list-action" >
+                    <h6 class="mb-2">{{product.nom}}</h6>
+                </div>
+                <!-- <div class="product-list-action" [ngSwitch]="status">
+                    <h6 class="mb-2">{{product.nom}}</h6>
+                    <span *ngSwitchCase="enum.available" class="'product-badge status-available">Available</span>
+                    <span *ngSwitchCase="enum.garage" class="'product-badge status-garage">Garage</span>
+                    <span *ngSwitchCase="enum.repaired" class="'product-badge status-repaired">Repaired</span>
+                </div> -->
+            </div>
+        </div>
+    </div>

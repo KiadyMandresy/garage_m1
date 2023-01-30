@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -17,8 +17,8 @@ import { AuthService } from 'src/app/services/authService';
 
 })
 export default class LoginComponent {
-  email: string;
-  password: string;
+  @Input() email: string;
+  @Input() password: string;
 
   constructor(
     private authService : AuthService

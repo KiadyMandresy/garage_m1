@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators'
+import { Car } from '../domain/car';
+import { Person } from '../domain/personne';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +20,31 @@ export class AuthService {
         private router: Router) { }
 
     baseUrl = environment.apiUrl + "users";
-
+    
+    public register(personne:Person): any{
+        const param = {
+            'nom': personne.nom,
+            'login': personne.prenom,
+            'email': personne.email,
+            'mdp': personne.mdp
+        }
+        // let params = new HttpParams()
+        //     .set('nom',personne.nom)
+        //     .set('prenom',personne.prenom)
+        //     .set('email',personne.email)
+        //     .set('mdp',personne.mdp);
+            console.log(personne.email);
+            console.log(this.baseUrl+'/register');
+            const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+        return this.http.post<any>(
+            this.baseUrl+'/register',
+            param,
+            config
+        );
+    }
     public login(username: string, password: string): any {
         const data = {'email': username, 'mdp': password};
-      const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+        const config = { headers: new HttpHeaders().set('Content-Type', 'application/json')};
         return this.http.post<any>(
             this.baseUrl+'/login',
             data,
@@ -31,11 +54,15 @@ export class AuthService {
     }
     // ato no tokny micheck ny catégorie anle user de selon anzay no hiredirigéna anazy
     public checkLogin(username: string,password:string) : any{
+        var role : string;
         this.login(username,password).subscribe(
             result =>{
                 console.log(result);
-                sessionStorage.setItem('role',result.categorie);
-                sessionStorage.setItem('currentUser',result.login);
+                sessionStorage.setItem('_id',result._id);
+                // sessionStorage.setItem('role',result.categorie);
+                // sessionStorage.setItem('currentUser',result.login);
+                role = result.categorie;
+                localStorage.setItem('token',result.token);
                 return result;
             },
             error => {
@@ -46,7 +73,11 @@ export class AuthService {
             () => {
                 // 'onCompleted' callback.
                 // No errors, route to new page here
+                console.log(role);
+                if(role=="Client")
                 this.router.navigate(['/accueil']);
+                else if(role=="atelier")
+                this.router.navigate(['/atelier']);
             }
         );
     }

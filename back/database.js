@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const username = "garage";
 const password = "qUvpon-5gosva-wydfum";
 const cluster = "cluster0.dlcoyol";
-const dbname = "DataGarage";
+const dbname = "data";
 
 //connect to database
 mongoose.connect(

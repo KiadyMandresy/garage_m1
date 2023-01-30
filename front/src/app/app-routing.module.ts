@@ -29,6 +29,30 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadComponent: () => import('./demo/sample-page/sample-page.component')
+      },
+      {
+        path: 'accueil',
+        loadComponent: () => import('./demo/accueil/accueil.component')
+      },
+      {
+        path: 'my-car',
+        loadComponent: () => import('./demo/my-car/my-car.component')
+      },
+      {
+        path: 'new-car',
+        loadComponent: () => import('./demo/new-car/new-car.component')
+      },
+      {
+        path: 'fiche-car',
+        loadComponent: () => import('./demo/fiche-car/fiche-car.component')
+      },
+      {
+        path: 'atelier',
+        loadComponent: () => import('./demo/atelier/atelier.component')
+      },
+      {
+        path: 'reparation',
+        loadComponent: () => import('./demo/reparation/reparation.component')
       }
     ]
   },

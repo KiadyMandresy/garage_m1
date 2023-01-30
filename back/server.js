@@ -28,7 +28,7 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
 
     next();
-});
+  });
 app.use(cors({
     origin: ['http://localhost:3000', 'http://localhost:4200', null],
     optionsSuccessStatus: 200
