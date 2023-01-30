@@ -23,6 +23,8 @@
     "jade": "^0.31.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.3",
+    "mongoose-sequence": "^5.3.1",
+    "mongoose-sequence-plugin": "^1.0.5",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.20",
     "save": "^2.9.0"

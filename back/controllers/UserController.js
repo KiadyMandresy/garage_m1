@@ -9,7 +9,7 @@ router.post('/register', (req, res, next) => {
     const salt = bcrypt.genSaltSync(10);
     req.body.mdp = bcrypt.hashSync(mdp, salt);
     userServices.register(req.body).then(
-        () => res.send('success')
+        () => res.sendStatus(200)
     ).catch(
         err => next(err)
     )
@@ -28,6 +28,12 @@ router.post('/login', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
     userServices.getById(req.params.id).then(
+        (user) => res.json(user)
+    ).catch(err => next(err))
+})
+
+router.get('/getVoit/:id', (req, res, next) => {
+    userServices.getByObjectId(req.params.id).then(
         (user) => res.json(user)
     ).catch(err => next(err))
 })
