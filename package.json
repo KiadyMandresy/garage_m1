@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "npm i && node front/server.js",
+    "start": "npm i && nodemon front/server.js",
     "build": "ng build",
     "build-prod": "ng build --configuration production --base-href /angular/free/",
     "watch": "ng build --watch --configuration development",
@@ -31,6 +31,7 @@
     "bootstrap": "^5.2.2",
     "ng-apexcharts": "^1.7.4",
     "ngx-scrollbar": "^10.0.1",
+    "nodemon": "^2.0.20",
     "primeicons": "^6.0.1",
     "primeng": "^15.1.1",
     "rxjs": "~7.5.7",
